@@ -1,0 +1,23 @@
+<div class="container-fluid home-container">
+    <div class="info-icon">
+      <i class="bi bi-info-circle"></i>
+    </div>
+    
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-lg-6">
+        <div class="welcome-section">
+          <h1>Bienvenido a <span class="city-name">Necochea</span></h1>
+          <h2 class="subtitle">¿qué hay para hacer hoy?</h2>
+        </div>
+        
+        <div class="options-container">
+          <button 
+            *ngFor="let option of options" 
+            class="option-button"
+            (click)="onOptionClick(option.route)">
+            {{ option.text }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>

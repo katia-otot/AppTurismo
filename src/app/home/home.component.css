@@ -1,0 +1,111 @@
+
+.home-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 2rem;
+  background: linear-gradient(135deg, #9b4dca, #7e3aa3);
+  position: relative;
+}
+
+.info-icon {
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    color: rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    
+    i {
+      font-size: 1.8rem;
+    }
+  
+    &:hover {
+      color: white;
+      transform: scale(1.1);
+    }
+}
+.welcome-section {
+    text-align: center;
+    margin: 4rem 0 3.5rem;
+  
+    h1 {
+      color: white;
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  
+      .city-name {
+        display: block;
+        font-size: 4.2rem;
+        margin-top: 0.5rem;
+      }
+    }
+  
+    .subtitle {
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 1.8rem;
+      font-weight: 400;
+      margin-bottom: 2rem;
+    }
+  }
+
+.options-container {
+  display: grid;
+  gap: 1.2rem;
+  max-width: 320px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.option-button {
+  background-color: rgba(255, 255, 255, 0.95);
+  border: none;
+  color: #5a2b77;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 1.2rem 2rem;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-3px);
+    background-color: white;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  }
+
+  &:active {
+    transform: translateY(-1px);
+  }
+}
+
+@media (max-width: 768px) {
+  .welcome-section {
+    margin: 3rem 0 2.5rem;
+
+    h1 {
+      font-size: 2.8rem;
+
+      .city-name {
+        font-size: 3.2rem;
+      }
+    }
+
+    .subtitle {
+      font-size: 1.5rem;
+    }
+  }
+
+  .info-icon {
+    top: 1rem;
+    left: 1rem;
+
+    i {
+      font-size: 1.5rem;
+    }
+  }
+}

@@ -1,0 +1,59 @@
+<div class="activity-container">
+    <!-- Icono de información y título -->
+    <div class="info-icon">
+      <i class="bi bi-info-circle"></i>
+    </div>
+    
+    <!-- Fecha y hora -->
+    <div class="header-info">
+      <div class="date">{{events[currentIndex].date}}</div>
+      <div class="time">{{events[currentIndex].time}}</div>
+    </div>
+  
+    <!-- Contenido principal -->
+    <div class="event-content">
+      <div class="event-description">
+        {{events[currentIndex].description}}
+      </div>
+  
+      <!-- Imagen del evento -->
+      <div class="event-image">
+        <img [src]="events[currentIndex].image" [alt]="events[currentIndex].title">
+      </div>
+  
+      <!-- Título del evento -->
+      <div class="event-title">
+        {{events[currentIndex].title}}
+      </div>
+  
+      <!-- Invitados si existen -->
+      <div class="event-guests" *ngIf="events[currentIndex].guests?.length">
+        <div class="guests-label">VOCES INVITADAS:</div>
+        <div class="guests-names">{{events[currentIndex].guests?.join(' y ')}}</div>
+      </div>
+  
+      <!-- Ubicación -->
+      <div class="event-location">
+        {{events[currentIndex].location}}
+      </div>
+    </div>
+  
+    <!-- Navegación -->
+    <div class="navigation">
+      <button class="nav-button prev" (click)="previousEvent()">
+        <i class="bi bi-arrow-left"></i>
+      </button>
+      <div class="location-marker">
+        <i class="bi bi-geo-alt-fill"></i>
+      </div>
+      <button class="nav-button next" (click)="nextEvent()">
+        <i class="bi bi-arrow-right"></i>
+      </button>
+    </div>
+  
+    <!-- Pie de página -->
+    <div class="category-display">
+      <h2>¿qué hay para hacer hoy?</h2>
+      <h3>{{currentCategory}}</h3>
+    </div>
+  </div>

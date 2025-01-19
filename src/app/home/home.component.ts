@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -14,9 +15,10 @@ export class HomeComponent {
     { text: 'Con amigos', route: '/amigos' },
     { text: 'En pareja', route: '/pareja' }
   ];
+
+  constructor(private router: Router) {} 
   
   onOptionClick(route: string): void {
-    console.log(`Navigating to: ${route}`);
-    // Aquí puedes implementar la navegación usando Router
+    this.router.navigate(['/actividad', route]);
   }
 }

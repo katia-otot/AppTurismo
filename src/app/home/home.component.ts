@@ -7,18 +7,18 @@ import { Router } from '@angular/router';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
   options = [
-    { text: 'En familia', route: '/familia' },
-    { text: 'Con amigos', route: '/amigos' },
-    { text: 'En pareja', route: '/pareja' }
+    { text: 'En familia', tipo: 'familia' },
+    { text: 'Con amigos', tipo: 'amigos' },
+    { text: 'En pareja', tipo: 'pareja' }
   ];
 
   constructor(private router: Router) {} 
   
-  onOptionClick(route: string): void {
-    this.router.navigate(['/actividad', route]);
+  onOptionClick(tipo: string): void {
+    this.router.navigate(['/actividad', tipo]);
   }
 }

@@ -19,36 +19,65 @@ interface Event {
   templateUrl: './activity.component.html',
   styleUrl: './activity.component.css'
 })
-export class ActivityComponent {
-  currentCategory: string = '';
+export class ActivityComponent implements OnInit{
+  tipoActividad: string = '';
   currentIndex: number = 0;
-  events: Event[] = [
-    {
-      date: 'Martes 21',
-      time: '19.00 HS',
-      title: 'UNDERTANGO',
-      description: 'Miqueas NoseK (BATERÍA) - Juan Esposito (BAJO) - Lucas Cambareri (BANDONEÓN) - Titi Trucco (TECLADOS)',
-      location: 'EL CAÑO - Parador de playa',
-      image: 'assets/images/evento1.jpg',
-      guests: ['MIQUIMAUS', 'MELISA CÁCERES']
-    },
-  
-  ];
+  actividades: any[] = [];
   constructor(private route: ActivatedRoute) {}
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      this.currentCategory = params['category'];
+      this.tipoActividad = params['tipo'];
+      this.cargarActividades(this.tipoActividad);
     });
+  }
+  previousEvent() {
+    if (this.currentIndex > 0) {
+      this.currentIndex--;
+    } else {
+      // Si estamos en el primer evento, volvemos al último
+      this.currentIndex = this.actividades.length - 1;
+    }
   }
 
   nextEvent() {
-    this.currentIndex = (this.currentIndex + 1) % this.events.length;
+    if (this.currentIndex < this.actividades.length - 1) {
+      this.currentIndex++;
+    } else {
+      // Si estamos en el último evento, volvemos al primero
+      this.currentIndex = 0;
+    }
+  }
+  cargarActividades(tipo: string) {
+    // Aquí filtras las actividades según el tipo
+    switch(tipo) {
+      case 'familia':
+        this.actividades = [ {
+          title: 'Evento 1',
+          date: '2024-03-20',
+          time: '15:00',
+          description: 'Descripción del evento 1',
+          image: 'ruta/imagen1.jpg',
+          location: 'Ubicación 1',
+          guests: ['Invitado 1', 'Invitado 2']
+        },];
+        break;
+      case 'amigos':
+        this.actividades = [{
+          title: 'Evento 2',
+          date: '2024-03-21',
+          time: '16:00',
+          description: 'Descripción del evento 2',
+          image: 'ruta/imagen2.jpg',
+          location: 'Ubicación 2',
+          guests: ['Invitado 3', 'Invitado 4']
+        }];
+        break;
+      case 'pareja':
+        this.actividades = [/* tus actividades recreativas */];
+        break;
+    }
   }
 
-  previousEvent() {
-    this.currentIndex = this.currentIndex === 0 
-      ? this.events.length - 1 
-      : this.currentIndex - 1;
-  }
+  
 }

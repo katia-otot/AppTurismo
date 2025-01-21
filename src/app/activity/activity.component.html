@@ -6,35 +6,35 @@
     
     <!-- Fecha y hora -->
     <div class="header-info">
-      <div class="date">{{events[currentIndex].date}}</div>
-      <div class="time">{{events[currentIndex].time}}</div>
+      <div class="date">{{actividades[currentIndex].date}}</div>
+      <div class="time">{{actividades[currentIndex].time}}</div>
     </div>
   
     <!-- Contenido principal -->
     <div class="event-content">
       <div class="event-description">
-        {{events[currentIndex].description}}
+        {{actividades[currentIndex].description}}
       </div>
   
       <!-- Imagen del evento -->
       <div class="event-image">
-        <img [src]="events[currentIndex].image" [alt]="events[currentIndex].title">
+        <img [src]="actividades[currentIndex].image" [alt]="actividades[currentIndex].title">
       </div>
   
       <!-- Título del evento -->
       <div class="event-title">
-        {{events[currentIndex].title}}
+        {{actividades[currentIndex].title}}
       </div>
   
       <!-- Invitados si existen -->
-      <div class="event-guests" *ngIf="events[currentIndex].guests?.length">
+      <div class="event-guests" *ngIf="actividades[currentIndex].guests?.length">
         <div class="guests-label">VOCES INVITADAS:</div>
-        <div class="guests-names">{{events[currentIndex].guests?.join(' y ')}}</div>
+        <div class="guests-names">{{actividades[currentIndex].guests?.join(' y ')}}</div>
       </div>
   
       <!-- Ubicación -->
       <div class="event-location">
-        {{events[currentIndex].location}}
+        {{actividades[currentIndex].location}}
       </div>
     </div>
   
@@ -54,6 +54,6 @@
     <!-- Pie de página -->
     <div class="category-display">
       <h2>¿qué hay para hacer hoy?</h2>
-      <h3>{{currentCategory}}</h3>
+      <h3>{{tipoActividad}}</h3>
     </div>
   </div>
